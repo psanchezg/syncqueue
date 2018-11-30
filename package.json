@@ -1,0 +1,41 @@
+{
+  "name": "syncqueue",
+  "description": "A simple queue written in JavaScript which runs asynchronous jobs in order as if they were synchronous.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Kenneth Powers",
+    "email": "mail@kenpowers.net"
+  },
+  "main": "SyncQueue.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "keywords": [
+    "asynchronous",
+    "queue",
+    "job"
+  ],
+  "license": "MIT",
+  "readme": "# SyncQueue.js\n## Overview\n`SyncQueue.js` is a simple queue written in JavaScript which runs asynchronous jobs in order as if they were synchronous. The single `SyncQueue.js` file works in CommonJS-like environments (such as NodeJS), AMD environments (such as RequireJS), and as a script which can be included by itself on a web page.\n\n##Example Usage\nFirst get the `SyncQueue` constructor for your environment.\n\nNodeJS (install with `npm install syncqueue`):\n\n    var SyncQueue = require('syncqueue');\n\nAMD:\n\n    define(['path/to/SyncQueue'], function (SyncQueue) {\n      // SyncQueue is in scope here\n    });\n\nHTML:\n\n    <script src=\"path/to/SyncQueue.js\"></script>\n    <script>\n      // SyncQueue is in scope here\n    </script>\n\nOnce you have the `SyncQueue` constructor, usage is simple:\n\n    var q = new SyncQueue();\n    q.add(function (done) {\n      setTimeout(function () {\n        console.log('First job.');\n        done();\n      }, 1000);\n    });\n    q.add(function (done) {\n      setTimeout(function () {\n        console.log('Second job.');\n        done();\n      }, 2000);\n    });\n    q.add(function (done) {\n      setTimeout(function () {\n        console.log('Third job.');\n        done();\n      }, 3000);\n    });\n\nThe console output from the code above will be `First job.` followed by `Second job.` followed by `Third job.`. The entire sequence should take approximately 6000ms.\n\n## Tests\n\nTo run the tests (really just one test) install mocha with `npm install -g mocha`. From this directory run `npm test` or `mocha test` and the tests will run.\n\n## License\n\n**The MIT License**\n\nCopyright (c) 2012 Kenneth Powers <mail@kenpowers.net>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
+  "readmeFilename": "README.md",
+  "_id": "syncqueue@0.1.0",
+  "dist": {
+    "shasum": "bb04bf0d6f8a3d71eab960c0c7eb2a00febea202",
+    "tarball": "http://registry.npmjs.org/syncqueue/-/syncqueue-0.1.0.tgz"
+  },
+  "_npmVersion": "1.1.65",
+  "_npmUser": {
+    "name": "KenPowers",
+    "email": "mail@kenpowers.net"
+  },
+  "maintainers": [
+    {
+      "name": "KenPowers",
+      "email": "mail@kenpowers.net"
+    }
+  ],
+  "directories": {},
+  "_shasum": "bb04bf0d6f8a3d71eab960c0c7eb2a00febea202",
+  "_resolved": "https://registry.npmjs.org/syncqueue/-/syncqueue-0.1.0.tgz",
+  "_from": "syncqueue@*"
+}
